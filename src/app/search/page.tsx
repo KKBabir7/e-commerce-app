@@ -1,5 +1,6 @@
-'use client';
 
+'use client';
+export const dynamic = "force-dynamic";
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import ProductGrid from '../components/ProductGrid';
@@ -12,7 +13,7 @@ export default function SearchPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  
+
   const query = searchParams.get('q') || '';
   const category = searchParams.get('category') || 'all';
 
@@ -39,14 +40,14 @@ export default function SearchPage() {
 
   const filterProducts = () => {
     let filtered = products;
-    
+
     // Filter by category
     if (category !== 'all') {
-      filtered = filtered.filter(product => 
+      filtered = filtered.filter(product =>
         product.category.toLowerCase() === category.toLowerCase()
       );
     }
-    
+
     // Filter by search query
     if (query) {
       filtered = filtered.filter(product =>
@@ -54,7 +55,7 @@ export default function SearchPage() {
         product.description.toLowerCase().includes(query.toLowerCase())
       );
     }
-    
+
     setFilteredProducts(filtered);
   };
 
@@ -79,13 +80,13 @@ export default function SearchPage() {
             Search Results
           </h1>
           <p className="text-gray-600">
-            {query && `"${query}"`} 
+            {query && `"${query}"`}
             {category !== 'all' && ` in ${category.replace("'s", "'s ")}`}
             {!query && category === 'all' && 'All Products'}
             <span className="ml-2">({filteredProducts.length} products found)</span>
           </p>
         </div>
-        
+
         {filteredProducts.length > 0 ? (
           <ProductGrid products={filteredProducts} columns={4} />
         ) : (
