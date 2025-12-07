@@ -70,22 +70,35 @@ Loading & error handling
 Clean file structure & modular components
 
 📁 Project Structure
-app/
- ├─ actions/
- │   ├─ getProducts.ts
- │   ├─ getCategories.ts
- │   ├─ getProductsByCategory.ts
- │   └─ getSingleProduct.ts
- ├─ components/
- │   ├─ Navigation/
- │   ├─ ProductCard/
- │   ├─ ProductGrid/
- │   ├─ CategorySlider/
- │   └─ UI Components
- ├─ category/[slug]/page.tsx
- ├─ product/[id]/page.tsx
- ├─ globals.css
- └─ layout.tsx
+e-commerce-app/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── actions/
+│   │   └── products.ts
+│   ├── components/
+│   │   ├── ui/
+│   │   │   ├── Button.tsx
+│   │   │   ├── Card.tsx
+│   │   │   └── SectionHeader.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── ProductGrid.tsx
+│   │   ├── CategorySection.tsx
+│   │   └── Layout/
+│   │       ├── Header.tsx
+│   │       ├── Footer.tsx
+│   │       └── Container.tsx
+│   └── types/
+│       └── product.ts
+├── lib/
+│   └── utils.ts
+├── public/
+├── .env.example
+├── tailwind.config.ts
+├── next.config.js
+├── package.json
+├── README.md
+└── tsconfig.json
 
 🧪 How to Run Locally
 1. Clone Repo
